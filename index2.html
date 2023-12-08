@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Embedded YouTube Video</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            transition: background-color 0.3s ease; /* Smooth transition for dark mode */
+        }
+
+        body.dark-mode {
+            background-color: #333; /* Dark mode background color */
+            color: white; /* Dark mode text color */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Stack items vertically */
+            min-height-bottom: 50vh;
+        }
+
+        .youtube-container {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        iframe {
+            max-width: 100%;
+            border-radius: 10px; /* Adjust the border-radius as needed */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adjust the blur effect by changing the rgba values */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333; /* Dark mode footer background color */
+            color: white;
+        }
+
+        body:not(.dark-mode) .footer {
+            background-color: #f2f2f2; /* Light mode footer background color */
+            color: #333; /* Light mode footer text color */
+        }
+
+        .dark-mode-button {
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px; /* Add some top margin */
+        }
+
+        .dark-mode-button:hover {
+            background-color: #777;
+        }
+    </style>
+    <script src="/youtube-loader.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Video Feed</h1>
+    </div>
+    <div class="container">
+        <section class="youtube-container" data-width="640" data-height="360"></section>
+        <button class="dark-mode-button" onclick="toggleDarkMode()">Toggle Light/Dark Mode</button>
+    </div>
+    <div class="footer">
+        <p>Phone: 0330 043 3161 | Email: <a href="mailto:info@coulsdon.discoandballoons.uk">info@coulsdon.discoandballoons.uk</a></p>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const container = document.querySelector('.container');
+        const containor = document.querySelector('section.youtube-container');
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('id');
+
+        const width = containor.getAttribute('data-width');
+        const height = containor.getAttribute('data-height');
+
+        if (videoId) {
+            containor.innerHTML = `<iframe width="${width}" height="${height}" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+        } else {
+            containor.innerHTML = '<p>Error: Video ID not provided</p>';
+        }
+    });
+
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
+
+    // Set dark mode by default
+    document.body.classList.add('dark-mode');
+</script>
+
+</body>
+</html>
