@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .photo-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .photo-item {
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+            width: 300px;
+            margin: 10px;
+        }
+
+        .photo-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-caption {
+            margin-top: 5px;
+            color: #fff;
+        }
+
+.photo-caption1 {
+    margin-top: 5px; /* Adjust margin as needed */
+    color: #555; /* Caption text color */
+}
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Video Showcase - Venues in Coulsdon</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="video-showcase.html">Video Showcase</a>
+    <a href="index.html#contact">Contact</a>
+</nav>
+
+<h2>Venues in Coulsdon</h2>
+<div class="photo-grid">
+    <a href="https://coulsdon.discoandballoons.uk/index2.html?id=4mfs3so-VyI" class="photo-item">
+        <img src="https://cdn0.hitched.co.uk/vendor/3851/3_2/960/jpg/coulsdon-man-20161020103722246.jpeg" alt="Coulsdon Manor Hotel">
+        <div class="photo-overlay">
+            <div class="photo-caption">Coulsdon Manor Hotel</div>
+        </div>
+
+        <div class="photo-caption1">Coulsdon Manor Hotel</div>
+    </div>
+    </a>
+    <!-- Add more photo items as needed -->
+</div>
+
+<footer>
+    &copy; 2023 Disco And Balloons. All rights reserved.
+</footer>
+
+</body>
+</html>
